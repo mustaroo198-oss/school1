@@ -1,196 +1,33 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>مدرسه/عبدالرحمن رضوان اصلان</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            padding: 40px;
-            text-align: center;
-        }
-        .box {
-            background: white;
-            padding: 25px;
-            width: 350px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        input, button {
-            padding: 10px;
-            width: 90%;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        button {
-            background: #0077ff;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background: #005dcc;
-        }
-        #result {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        /* جدول الحصص */
-        .table-box {
-            width: 90%;
-            margin: 40px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-        table th, table td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-        table th {
-            background: #0077ff;
-            color: white;
-        }
-        h3 {
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="box">
-    <h2>البحث عن كود الطالب / الطالبه 
-        فصل 6/1
-    </h2>
-    <input type="text" id="nameInput" placeholder="اكتب اسم الطالب">
-    <button onclick="search()">بحث</button>
-    <div id="result"></div>
-</div>
-
-<!-- جدول الحصص الأسبوعي -->
-<div class="table-box">
-    <h3>جدول الحصص الاسبوعي    "قابل للتغير"</h3>
-
-    <table>
-        <thead>
-            <tr>
-                <th>اليوم</th>
-                <th>الحصة الأولى</th>
-                <th>الحصة الثانية</th>
-                <th>الحصة الثالثة</th>
-                <th>الحصة الرابعة</th>
-                <th>فسحه</th>
-                <th>الحصه الخامسه</th>
-                <th>الحصه السادسه</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>السبت</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>الاحد</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>الاثنين</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>الثلاثاء</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>الاربع</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>الخميس</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>----</td>
-                <td></td>
-                <td></td>
-        </tbody>
-    </table>
-</div>
+<meta charset="UTF-8">
+<title>Protected Page</title>
 
 <script>
-    const database = {
-        "عمار شعيب": "1",
-        "عمر المراطن": "2",
-        "عمر حدوه": "3",
-        "عمر خضير": "4",
-        "eror": "5",
-        "school": "6",
-        "rool": "7",
-        "marram": "8",
+  // الباسورد اللي إنت عايزه
+  const password = "12345";
 
-    };
+  function checkPassword() {
+    const input = prompt("ادخل الباسورد:");
 
-    function search() {
-        const name = document.getElementById("nameInput").value.trim();
-        const resultDiv = document.getElementById("result");
-
-        if (name === "") {
-            resultDiv.innerHTML = "رجاءً اكتب اسم الطالب أولاً.";
-            return;
-        }
-
-        if (database[name]) {
-            resultDiv.innerHTML =
-                "كود " + name + " هو: <span style='color: green'>" + database[name] + "</span>";
-        } else {
-            resultDiv.innerHTML = "ERROR 404";
-        }
+    if (input === password) {
+      // عرض المحتوى بعد الباسورد
+      document.getElementById("content").style.display = "block";
+    } else {
+      alert("باسورد غلط!");
+      window.location.href = "about:blank";
     }
+  }
 </script>
+
+</head>
+<body onload="checkPassword()">
+
+<div id="content" style="display:none;">
+    <h1>أهلاً بك!</h1>
+    <p>ده محتوى الموقع بعد الباسورد.</p>
+</div>
 
 </body>
 </html>
-
